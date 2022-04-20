@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ProvidenceFund.ViewModel.EmployeeViewModel>
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<style>
+    tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tbody tr:hover {
+        background-color: #ddd;
+    }
+</style>
+
+<h1>Manage Employees</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create Employee</a>
+</p>
+<div class="text-center">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateOfBirth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartWorkDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salary)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var viewModel in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => viewModel.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => viewModel.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => viewModel.DateOfBirth)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => viewModel.StartWorkDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => viewModel.Salary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => viewModel.Rate)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@viewModel.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@viewModel.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@viewModel.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

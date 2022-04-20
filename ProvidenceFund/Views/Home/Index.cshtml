@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ProvidenceFund.ViewModel.ResultViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tbody tr:hover {
+        background-color: #ddd;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4" style="margin-bottom: 15px">Providence fund for the employee</h1>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StartWorkDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salary)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalPvdFund)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var viewModel in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => viewModel.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => viewModel.StartWorkDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => viewModel.Salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => viewModel.Rate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => viewModel.TotalPvdFund)
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
