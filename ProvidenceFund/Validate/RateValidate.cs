@@ -41,12 +41,12 @@ namespace ProvidenceFund.Validate
             }
             else if (DiffYear < 5)
             {
-                if (rate > 8) return new ValidationResult("Employee that work less than 3-year company can choose pvd rate not over 8");
+                if (rate > 8) return new ValidationResult("Employee that work less than 5-year company can choose pvd rate not over 8");
                 else return ValidationResult.Success;
             }
             else
             {
-                if (rate > 12) return new ValidationResult("Employee that work less than 3-year company can choose pvd rate not over 12");
+                if (rate > 12) return new ValidationResult("Employee that work over 5-year company can choose pvd rate not over 12");
                 else return ValidationResult.Success;
             }
         }
